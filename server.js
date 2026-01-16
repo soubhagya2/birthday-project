@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const fs = require("fs").promises;
+const fsp = require("fs").promises;
+const fs = require("fs");
 const path = require("path");
 
 const app = express();
@@ -12,7 +13,14 @@ const PORT = process.env.PORT || 3000;
  * Local = project directory
  */
 const DB_DIR = process.env.NODE_ENV === "production" ? "/data" : __dirname;
-const DB_PATH = path.join(DB_DIR, "db.json");
+const LOCAL_API_DB = path.join(__dirname, "api", "media", "db.json");
+let DB_PATH = path.join(DB_DIR, "db.json");
+
+// If a project-local `api/media/db.json` exists, prefer it (developer convenience)
+if (fs.existsSync(LOCAL_API_DB)) {
+  DB_PATH = LOCAL_API_DB;
+}
+const SEED_DB_PATH = path.join(__dirname, "db.seed.json");
 
 console.log("Using DB path:", DB_PATH);
 
@@ -23,16 +31,35 @@ app.use(bodyParser.json());
 // ---------------- DB INIT ----------------
 async function ensureDB() {
   try {
-    await fs.mkdir(DB_DIR, { recursive: true });
+    await fsp.mkdir(DB_DIR, { recursive: true });
 
     try {
-      await fs.access(DB_PATH);
-    } catch {
-      await fs.writeFile(
-        DB_PATH,
-        JSON.stringify({ images: [], videos: [] }, null, 2)
-      );
-      console.log("db.json created");
+      await fsp.access(DB_PATH);
+    } catch (err) {
+      if (err.code === "ENOENT") {
+        // DB_PATH does not exist, so we create it.
+        // This is the perfect time to seed it with initial data.
+        console.log(
+          `'${DB_PATH}' not found. Creating and seeding from '${SEED_DB_PATH}'...`
+        );
+        try {
+          // Read the seed data
+          const seedData = await fsp.readFile(SEED_DB_PATH, "utf8");
+          // Write the seed data to the new DB file
+          await fsp.writeFile(DB_PATH, seedData);
+          console.log("db.json created and seeded successfully.");
+        } catch (seedError) {
+          // If seed file doesn't exist, create an empty DB
+          console.warn(
+            `Warning: Could not read seed file '${SEED_DB_PATH}'. Creating an empty database.`
+          );
+          await fsp.writeFile(
+            DB_PATH,
+            JSON.stringify({ images: [], videos: [] }, null, 2)
+          );
+          console.log("Empty db.json created.");
+        }
+      }
     }
   } catch (err) {
     console.error("DB init error:", err);
@@ -44,7 +71,7 @@ ensureDB();
 // ---------------- HELPERS ----------------
 async function readDB() {
   try {
-    const data = await fs.readFile(DB_PATH, "utf8");
+    const data = await fsp.readFile(DB_PATH, "utf8");
     return JSON.parse(data);
   } catch (err) {
     console.error("Read DB error:", err);
@@ -54,7 +81,7 @@ async function readDB() {
 
 async function writeDB(data) {
   try {
-    await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2));
+    await fsp.writeFile(DB_PATH, JSON.stringify(data, null, 2));
   } catch (err) {
     console.error("Write DB error:", err);
   }
