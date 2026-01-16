@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Snigdha ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap");
+
+      .font-cursive {
+        font-family: "Dancing Script", cursive;
+      }
+      .font-cute {
+        font-family: "Quicksand", sans-serif;
+      }
+
+      body {
+        overflow: auto;
+        font-family: "Quicksand", sans-serif;
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><text y="15" font-size="15">🐾</text></svg>'),
+          auto;
+      }
+
+      .step-section {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .step-section.active {
+        display: flex;
+        opacity: 1;
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      @keyframes bounce-gentle {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      @keyframes wiggle {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-5deg);
+        }
+        75% {
+          transform: rotate(5deg);
+        }
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .heart-float {
+        animation: float 6s infinite ease-in-out;
+      }
+      .bounce-gentle {
+        animation: bounce-gentle 2s infinite ease-in-out;
+      }
+      .wiggle-anim {
+        animation: wiggle 1.5s infinite ease-in-out;
+      }
+      .heartbeat-anim {
+        animation: heartbeat 1.5s infinite ease-in-out;
+      }
+
+      .progress-bar {
+        transition: width 0.5s ease-in-out;
+      }
+
+      .bubble-tail::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 20px;
+        border-width: 10px 10px 0 10px;
+        border-style: solid;
+        border-color: white transparent transparent transparent;
+      }
+
+      .sticker-blend {
+        mix-blend-mode: multiply;
+      }
+
+      .final-card-glow {
+        box-shadow: 0 0 30px rgba(251, 207, 232, 0.8);
+        border: 4px solid white;
+      }
+
+      .custom-scroll::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scroll::-webkit-scrollbar-thumb {
+        background: #fbcfe8;
+        border-radius: 10px;
+      }
+
+      .media-item {
+        position: relative;
+      }
+      .media-item:hover {
+        transform: rotate(0deg) scale(1.08) !important;
+        z-index: 10;
+      }
+
+      .toast {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+        max-width: 90vw;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .upload-progress {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        min-width: 250px;
+      }
+
+      @media (max-width: 640px) {
+        .toast {
+          left: 20px;
+          right: 20px;
+          top: 70px;
+        }
+      }
+      /* Universal responsive media fix */
+      .media-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1; /* images */
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+
+      .media-wrapper video {
+        aspect-ratio: 16 / 9;
+      }
+
+      .media-wrapper img,
+      .media-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+    </style>
+  </head>
+  <body class="bg-pink-50 text-gray-800 font-sans">
+    <!-- Progress Indicator -->
+    <div class="fixed top-0 left-0 w-full h-2 bg-pink-100 z-50">
+      <div id="progress" class="progress-bar h-full bg-gradient-to-r from-pink-400 via-rose-400 to-orange-300">
+
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Navigation Overlay -->
+    <div
+      class="fixed bottom-8 left-0 w-full flex justify-center gap-4 z-40 px-4"
+    >
+      <button
+        id="prevBtn"
+        onclick="changeStep(-1)"
+        class="hidden bg-white/90 backdrop-blur-sm text-pink-500 border-2 border-pink-200 px-6 md:px-8 py-3 rounded-full shadow-lg hover:bg-pink-100 transition-all font-cute font-semibold flex items-center gap-2 text-sm md:text-base"
+      >
+        <span>←</span> Back
+      </button>
+      <button
+        id="nextBtn"
+        onclick="changeStep(1)"
+        class="bg-gradient-to-r from-pink-400 to-rose-500 text-white px-8 md:px-10 py-3 rounded-full shadow-xl hover:scale-105 transition-all font-cute font-bold border-2 border-pink-100 flex items-center gap-2 text-sm md:text-base"
+      >
+        Next <span class="text-xl">🐾</span>
+      </button>
+    </div>
+
+    <main id="story-container" class="relative h-screen w-full overflow-auto">
+      <!-- 1. HERO SECTION -->
+      <section
+        class="step-section active h-full w-full flex-col justify-center items-center px-5 bg-gradient-to-br from-pink-200 via-rose-100 to-orange-50 text-center relative overflow-hidden"
+      >
+        <div class="z-10 mt-[-5vh]">
+          <div class="mb-6 bounce-gentle flex justify-center">
+            <img
+              src="https://i.pinimg.com/originals/fa/b6/9d/fab69df83b7e6f4eec7bcec555df0844.gif"
+              alt="Happy Dance"
+              class="w-48 md:w-64 h-48 md:h-64 object-contain sticker-blend"
+            />
+          </div>
+          <h1
+            class="text-4xl md:text-7xl font-cursive mb-5 drop-shadow-lg text-pink-500 px-4"
+          >
+            Happy Birthday Snigdha ❤️
+          </h1>
+          <p
+            class="text-lg md:text-2xl text-pink-600 max-w-2xl leading-relaxed mx-auto font-cute font-bold px-4"
+          >
+            To the most beautiful soul who makes my world brighter every day.
+          </p>
+          <div
+            class="mt-8 bg-white p-4 rounded-2xl shadow-lg inline-block relative bubble-tail wiggle-anim border-2 border-pink-100 mx-4"
+          >
+            <p
+              class="text-pink-500 font-bold font-cute text-base md:text-lg text-center px-4"
+            >
+              Click Next for your surprises, my love! 🐾
+            </p>
+          </div>
+        </div>
+        <div
+          id="hero-hearts"
+          class="absolute inset-0 pointer-events-none"
+        ></div>
+      </section>
+
+      <!-- 2. LOVE NOTE -->
+      <section
+        class="step-section h-full w-full flex-col justify-center items-center px-5 bg-[#fffafb] overflow-y-auto custom-scroll"
+      >
+        <div
+          class="max-w-3xl bg-white p-6 md:p-12 rounded-[40px] shadow-2xl border-4 md:border-8 border-pink-100 relative my-10"
+        >
+          <div
+            class="absolute -top-12 md:-top-20 -right-6 md:-right-12 w-32 md:w-48 h-32 md:h-48 wiggle-anim"
+          >
+            <img
+              src="https://i.pinimg.com/originals/e1/fb/2a/e1fb2a070b352ab435d5fdfba80f2761.gif"
+              alt="Hugging"
+              class="w-full h-full object-contain sticker-blend"
+            />
+          </div>
+          <h2
+            class="text-3xl md:text-5xl text-pink-400 mb-6 md:mb-8 text-center font-cursive"
+          >
+            My Dearest Snigdha,
+          </h2>
+          <div
+            class="max-h-[50vh] overflow-y-auto pr-2 md:pr-4 text-base md:text-lg text-gray-600 leading-relaxed space-y-4 font-cute custom-scroll text-justify"
+          >
+            <p>
+              🌸 As the world celebrates another year of your beautiful
+              existence, my heart overflows with gratitude for having you in my
+              life. You are not just the love of my life, but the very reason my
+              days are filled with joy and meaning.
+            </p>
+            <p>
+              ✨ Every moment with you feels like a precious gift. Your smile
+              lights up even the darkest days, and your laughter is the melody
+              that plays in my heart. You've shown me what true love means—it's
+              in the way you care, the way you understand, and the way you make
+              everything feel right.
+            </p>
+            <p>
+              💖 On this special day, I want you to know that you are cherished
+              beyond words. You are my happiness, my peace, and my forever.
+              Thank you for being you, for loving me, and for making life so
+              incredibly beautiful.
+            </p>
+            <p
+              class="text-center font-bold text-rose-400 mt-6 text-lg md:text-xl"
+            >
+              Happy Birthday, My Sunshine! 🎀
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. PHOTO GALLERY -->
+      <section
+        class="step-section h-full w-full flex flex-col items-center px-5 bg-gradient-to-br from-rose-50 to-pink-100 overflow-y-auto custom-scroll pt-10 pb-32"
+      >
+        <div
+          class="mb-6 flex gap-2 md:gap-4 items-center justify-center flex-wrap px-4"
+        >
+          <img
+            src="https://i.pinimg.com/originals/95/ff/84/95ff843fad0b0c298f396ea52d74bc5c.gif"
+            class="md:block w-16 md:w-20 h-16 md:h-20 object-contain wiggle-anim"
+          />
+          <h2
+            class="text-3xl md:text-4xl text-rose-400 font-cursive text-center"
+          >
+            Our Beautiful Memories 📸
+          </h2>
+          <img
+            src="https://i.pinimg.com/originals/95/ff/84/95ff843fad0b0c298f396ea52d74bc5c.gif"
+            class="hidden md:block w-16 md:w-20 h-16 md:h-20 object-contain scale-x-[-1] wiggle-anim"
+          />
+        </div>
+        <input
+          type="file"
+          id="imageUpload"
+          accept="image/*"
+          multiple
+          class="hidden"
+        />
+        <button
+          onclick="document.getElementById('imageUpload').click()"
+          class="mb-6 bg-white text-rose-400 border-2 border-rose-100 px-6 md:px-8 py-3 rounded-full font-cute font-bold shadow-md hover:bg-rose-50 transition-all text-sm md:text-base"
+        >
+          📸 Add New Memories
+        </button>
+        <div
+          id="imageGallery"
+          class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl w-full px-4"
+        >
+        </div>
+      </section>
+
+      <!-- 4. VIDEOS -->
+      <section
+        class="step-section h-full w-full flex flex-col items-center px-5 bg-gradient-to-br from-purple-100 to-rose-100 overflow-y-auto custom-scroll pt-10 pb-32"
+      >
+        <div class="mb-6 flex gap-2 md:gap-4 items-center justify-center flex-wrap px-4">
+          <img
+            src="https://i.pinimg.com/originals/ec/96/32/ec963204a17a9dccdcee76b161aa7060.gif"
+            class="md:block w-16 md:w-20 h-16 md:h-20 object-contain sticker-blend wiggle-anim"
+            alt="Watching"
+          />
+          <h2 class="text-3xl md:text-4xl text-pink-500 font-cursive text-center">
+            Moments in Motion 🎥
+          </h2>
+          <img
+            src="https://i.pinimg.com/originals/ec/96/32/ec963204a17a9dccdcee76b161aa7060.gif"
+            class="hidden md:block w-16 md:w-20 h-16 md:h-20 object-contain scale-x-[-1] sticker-blend wiggle-anim"
+            alt="Watching"
+          />
+        </div>
+
+        <input
+          type="file"
+          id="videoUpload"
+          accept="video/*"
+          multiple
+          class="hidden"
+        />
+
+        <button
+          onclick="document.getElementById('videoUpload').click()"
+          class="mb-6 bg-white text-pink-500 border-2 border-pink-100 px-6 md:px-8 py-3 rounded-full font-cute font-bold shadow-md hover:bg-pink-50 transition-all text-sm md:text-base"
+        >
+          🎥 Upload Videos
+        </button>
+
+        <div
+          id="videoGallery"
+          class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl w-full px-4"
+        >
+          <!-- Media will be loaded here from the database -->
+        </div>
+      </section>
+
+      <!-- 5. 8 REASONS -->
+      <section
+        class="step-section h-full w-full flex flex-col items-center px-5 bg-gradient-to-br from-white to-orange-50 overflow-y-auto custom-scroll pt-10 pb-32"
+      >
+        <div class="mb-6 flex gap-2 md:gap-4 items-center justify-center flex-wrap px-4">
+          <img
+            src="https://i.pinimg.com/originals/c9/02/0a/c9020a6e157290d997a93c037a47e281.gif"
+            alt="Happy"
+            class="md:block w-16 md:w-20 h-16 md:h-20 object-contain sticker-blend wiggle-anim"
+          />
+          <h2 class="text-3xl md:text-4xl text-pink-500 font-cursive text-center">
+            Why You're My Favorite 🌸
+          </h2>
+          <img
+            src="https://i.pinimg.com/originals/c9/02/0a/c9020a6e157290d997a93c037a47e281.gif"
+            alt="Happy"
+            class="hidden md:block w-16 md:w-20 h-16 md:h-20 object-contain scale-x-[-1] sticker-blend wiggle-anim"
+          />
+        </div>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-6xl w-full px-4"
+        >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">😊</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
+              Your Smile
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
+              It makes my whole world stop and stare.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">💖</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
+              Kind Heart
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
+              Your soul is pure magic and kindness.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-1 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">✨</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
+              Inner Strength
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
+              You inspire me to be better every day.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">😂</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
+              Your Laughter
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
+              The most beautiful sound in the universe.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">🌟</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
+              Your Support
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
+              You believe in me even when I don't.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-1 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">🤗</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
+              Warm Vibes
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
+              Being with you feels exactly like home.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">🌹</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
+              Uniqueness
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
+              There is literally no one else like you.
+            </p>
+          </div>
+
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">💝</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
+              Pure Love
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
+              The way you care is rare and precious.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 6. TIMELINE -->
+      <section class="step-section min-h-screen w-full flex flex-col items-center px-4 sm:px-5 bg-[#fffaf0] overflow-y-auto custom-scroll py-10">
+        <div class="w-full max-w-2xl text-center text-pink-500">
+
+          <img
+            src="https://mystickermania.com/cdn/stickers/cute-cats/mochi-cat-friend-wake-up-512x512.png"
+            alt="Happy Cat"
+            class="w-28 sm:w-32 h-auto mx-auto mb-4 bounce-gentle"
+          />
+
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-cursive mb-8">
+            Our Story Book 📖
+          </h2>
+
+          <div class="relative w-full text-left max-h-[60vh] overflow-y-auto custom-scroll px-2">
+
+            <span class="absolute left-6 sm:left-8 top-0 h-full w-[2px] bg-pink-200"></span>
+
+            <ul class="space-y-8 sm:space-y-10 pl-12 sm:pl-16">
+
+              <li class="relative">
+                <span
+                  class="absolute -left-[38px] sm:-left-[46px] top-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-4 border-pink-300 shadow-md flex items-center justify-center text-sm z-10"
+                >🐾</span>
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100">
+                  <h4 class="font-bold text-pink-400 font-cute text-base sm:text-lg">
+                    The Day We Met
+                  </h4>
+                  <p class="text-gray-500 font-cute text-xs sm:text-sm mt-1">
+                    The day my favorite person finally appeared in my life! 💕
+                  </p>
+                </div>
+              </li>
+
+              <li class="relative">
+                <span
+                  class="absolute -left-[38px] sm:-left-[46px] top-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-4 border-pink-300 shadow-md flex items-center justify-center text-sm z-10"
+                >💬</span>
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100">
+                  <h4 class="font-bold text-pink-400 font-cute text-base sm:text-lg">
+                    Our First Conversation
+                  </h4>
+                  <p class="text-gray-500 font-cute text-xs sm:text-sm mt-1">
+                    I instantly knew there was something special between us.
+                  </p>
+                </div>
+              </li>
+
+
+              <li class="relative">
+                <span
+                  class="absolute -left-[38px] sm:-left-[46px] top-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-4 border-pink-300 shadow-md flex items-center justify-center text-sm z-10"
+                >✨</span>
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100">
+                  <h4 class="font-bold text-pink-400 font-cute text-base sm:text-lg">
+                    Falling In Love
+                  </h4>
+                  <p class="text-gray-500 font-cute text-xs sm:text-sm mt-1">
+                    Somewhere between laughs, late nights, and shared dreams.
+                  </p>
+                </div>
+              </li>
+
+              <li class="relative">
+                <span
+                  class="absolute -left-[38px] sm:-left-[46px] top-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-4 border-pink-300 shadow-md flex items-center justify-center text-sm z-10"
+                >🌟</span>
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100">
+                  <h4 class="font-bold text-pink-400 font-cute text-base sm:text-lg">
+                    Always & Forever
+                  </h4>
+                  <p class="text-gray-500 font-cute text-xs sm:text-sm mt-1">
+                    Choosing you every single day is my favorite thing to do.
+                  </p>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- 7. COUNTDOWN -->
+      <section
+        class="step-section h-full w-full flex-col justify-center items-center px-5 bg-gradient-to-br from-pink-50 to-orange-50 text-center overflow-y-auto custom-scroll py-10"
+      >
+        <div class="mb-6 bounce-gentle">
+          <img
+            src="https://i.pinimg.com/originals/41/98/64/41986463fdc0bdf58c0249ad0e487931.gif"
+            alt="Counting"
+            class="w-40 md:w-48 h-40 md:h-48 object-contain mx-auto sticker-blend"
+          />
+        </div>
+        <h2
+          class="text-2xl md:text-5xl text-rose-400 mb-8 md:mb-12 font-cursive px-4"
+        >
+          Counting Down to Your Best Year Yet!
+        </h2>
+        <div
+          id="countdownDisplay"
+          class="flex gap-2 md:gap-6 justify-center flex-wrap px-4"
+        >
+          <div
+            class="bg-white p-3 md:p-8 rounded-[30px] md:rounded-[40px] shadow-2xl text-center min-w-[70px] md:min-w-[110px] border-b-4 md:border-b-8 border-pink-200"
+          >
+            <div
+              id="days"
+              class="text-3xl md:text-5xl font-bold text-pink-400 font-cute"
+            >
+              00
+            </div>
+            <div
+              class="text-[9px] md:text-xs text-pink-300 font-bold uppercase mt-1 md:mt-2"
+            >
+              Days
+            </div>
+          </div>
+          <div
+            class="bg-white p-3 md:p-8 rounded-[30px] md:rounded-[40px] shadow-2xl text-center min-w-[70px] md:min-w-[110px] border-b-4 md:border-b-8 border-pink-200"
+          >
+            <div
+              id="hours"
+              class="text-3xl md:text-5xl font-bold text-pink-400 font-cute"
+            >
+              00
+            </div>
+            <div
+              class="text-[9px] md:text-xs text-pink-300 font-bold uppercase mt-1 md:mt-2"
+            >
+              Hours
+            </div>
+          </div>
+          <div
+            class="bg-white p-3 md:p-8 rounded-[30px] md:rounded-[40px] shadow-2xl text-center min-w-[70px] md:min-w-[110px] border-b-4 md:border-b-8 border-pink-200"
+          >
+            <div
+              id="minutes"
+              class="text-3xl md:text-5xl font-bold text-pink-400 font-cute"
+            >
+              00
+            </div>
+            <div
+              class="text-[9px] md:text-xs text-pink-300 font-bold uppercase mt-1 md:mt-2"
+            >
+              Mins
+            </div>
+          </div>
+          <div
+            class="bg-white p-3 md:p-8 rounded-[30px] md:rounded-[40px] shadow-2xl text-center min-w-[70px] md:min-w-[110px] border-b-4 md:border-b-8 border-pink-200"
+          >
+            <div
+              id="seconds"
+              class="text-3xl md:text-5xl font-bold text-pink-400 font-cute"
+            >
+              00
+            </div>
+            <div
+              class="text-[9px] md:text-xs text-pink-300 font-bold uppercase mt-1 md:mt-2"
+            >
+              Secs
+            </div>
+          </div>
+        </div>
+        <div
+          id="birthdayMessage"
+          class="hidden mt-8 bg-white p-6 rounded-3xl shadow-xl border-4 border-pink-300 max-w-md mx-auto"
+        >
+          <p class="text-2xl md:text-3xl font-cursive text-rose-500 mb-2">
+            🎉 Happy Birthday! 🎉
+          </p>
+          <p class="text-base md:text-lg font-cute text-gray-600">
+            Hope your day is as special as you are!
+          </p>
+        </div>
+      </section>
+
+      <!-- 8. SURPRISE -->
+      <section
+        class="step-section h-full w-full flex-col justify-center items-center px-5 bg-white relative text-center overflow-y-auto custom-scroll py-10"
+      >
+        <div id="surprise-trigger" class="w-full">
+          <img
+            src="https://i.pinimg.com/originals/ae/9a/8b/ae9a8b3a55029ff10a0579b392560809.gif"
+            alt="Surprise"
+            class="w-48 md:w-56 h-48 md:h-56 mx-auto mb-6 sticker-blend"
+          />
+          <h2 class="text-4xl md:text-5xl text-rose-400 font-cursive mb-6 px-4">
+            A Message Just For You
+          </h2>
+          <button
+            onclick="revealMessage()"
+            class="bg-gradient-to-r from-rose-400 to-pink-500 text-white px-10 md:px-12 py-4 md:py-5 rounded-full text-lg md:text-xl font-cute font-bold shadow-2xl hover:scale-110 transition-all border-4 border-pink-100 flex items-center gap-3 mx-auto"
+          >
+            Open the Gift! ✨
+          </button>
+        </div>
+        <div
+          id="surpriseMessage"
+          class="hidden max-w-2xl bg-gradient-to-br from-white to-pink-50 p-8 md:p-14 rounded-[40px] md:rounded-[50px] shadow-2xl border-4 border-rose-200 relative z-10 mx-4"
+        >
+          <img
+            src="https://custom-progress-bar.com/cdn/images/214/cute-mochi-mochi-peach-cat-on-goma-custom-progress-bar-m.png"
+            alt="Happy Together"
+            class="w-24 md:w-32 h-24 md:h-32 object-contain mx-auto mb-6 sticker-blend"
+          />
+          <h3
+            class="text-rose-500 text-3xl md:text-4xl mb-6 md:mb-8 font-cursive"
+          >
+            To My Precious Sunshine 💕
+          </h3>
+          <p
+            class="text-gray-600 leading-loose text-lg md:text-xl font-cute italic bg-white/60 p-5 md:p-6 rounded-3xl mb-6 md:mb-8 border-l-4 md:border-l-8 border-pink-400"
+          >
+            "Snigdha, you are the warmth in my cold days and the joy in every
+            single moment. I am so lucky to have you in my life. You make every
+            day feel like a celebration. I love you beyond words, today and
+            always. ❤️"
+          </p>
+          <div class="font-cursive text-4xl md:text-5xl text-rose-600">
+            Subhh 💖
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. FINAL LETTER & FOOTER -->
+      <section
+        id="final-page"
+        class="step-section h-full w-full flex-col justify-center items-center px-5 bg-gradient-to-br from-purple-100 via-pink-100 to-rose-100 relative overflow-hidden py-10"
+      >
+        <div
+          class="max-w-3xl bg-white/90 p-6 m-6 md:p-12 rounded-[40px] md:rounded-[50px] shadow-2xl text-center final-card-glow relative z-10 mx-4"
+        >
+          <div class="mb-6 relative inline-block">
+            <img
+              src="https://i.pinimg.com/originals/fd/79/b9/fd79b98ddf7ff1d071de8a0a79af90bd.gif"
+              alt="Hugs"
+              class="w-32 md:w-48 h-auto object-contain mx-auto sticker-blend relative z-10"
+            />
+            <div
+              class="absolute top-0 right-0 text-2xl md:text-3xl animate-bounce"
+            >
+              💖
+            </div>
+          </div>
+
+          <h2 class="text-3xl md:text-5xl text-pink-500 mb-6 font-cursive">
+            Forever Yours
+          </h2>
+
+          <div
+            class="text-base md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8 space-y-4 font-cute max-h-[30vh] overflow-y-auto custom-scroll px-2"
+          >
+            <p>
+              I promise to stand by your side through every joy and every
+              challenge. I promise to support your dreams and be your safe place
+              always.
+            </p>
+            <p>
+              Thank you for making my life complete and for being the incredible
+              person you are. You make every ordinary day feel like a miracle.
+            </p>
+            <p>
+              Happy Birthday, my beautiful Snigdha! Here is to many more years
+              of us being together.
+            </p>
+          </div>
+
+          <div
+            class="text-2xl md:text-4xl text-pink-500 font-cursive animate-pulse mb-6 md:mb-8"
+          >
+            Always and Forever, Subhh ❤️
+          </div>
+
+          <button
+            onclick="restartJourney()"
+            class="text-pink-400 hover:text-pink-600 font-cute font-bold text-sm underline transition-colors flex items-center justify-center gap-2 mx-auto"
+          >
+            <span>✨</span> Restart Our Journey <span>✨</span>
+          </button>
+        </div>
+
+        <div
+          id="final-decor"
+          class="absolute inset-0 pointer-events-none"
+        ></div>
+      </section>
+    </main>
+
+    <script>
+/* =====================================================
+   CLOUDINARY CONFIG (SINGLE SOURCE OF TRUTH)
+===================================================== */
+const CLOUD_NAME = "dgqvkksup";
+const IMAGE_UPLOAD_PRESET = "birthday_unsigned";
+const VIDEO_UPLOAD_PRESET = "birthday_video_unsigned";
+
+/* =====================================================
+   DOM REFERENCES
+===================================================== */
+const imageInput = document.getElementById("imageUpload");
+const videoInput = document.getElementById("videoUpload");
+const imageGallery = document.getElementById("imageGallery");
+const videoGallery = document.getElementById("videoGallery");
+const sections = document.querySelectorAll(".step-section");
+
+/* =====================================================
+   STATE
+===================================================== */
+      let currentStep = 0;
+      let finalPageInterval = null;
+      let countdownInterval = null;
+
+/* =====================================================
+   CLOUDINARY TRANSFORMS
+===================================================== */
+function cloudinaryImage(url) {
+  return url.replace("/upload/", "/upload/f_auto,q_auto,w_auto,c_limit/");
+}
+
+function cloudinaryVideo(url) {
+  return url.replace("/upload/", "/upload/f_auto,q_auto/");
+}
+
+/* =====================================================
+   CLOUDINARY UPLOADS
+===================================================== */
+async function uploadImage(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", IMAGE_UPLOAD_PRESET);
+  formData.append("folder", "birthday-memories");
+
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+    { method: "POST", body: formData }
+  );
+
+  if (!res.ok) throw new Error("Image upload failed");
+  return (await res.json()).secure_url;
+}
+
+async function uploadVideo(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", VIDEO_UPLOAD_PRESET);
+  formData.append("folder", "birthday-memories/videos");
+
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/video/upload`,
+    { method: "POST", body: formData }
+  );
+
+  if (!res.ok) throw new Error("Video upload failed");
+  return (await res.json()).secure_url;
+}
+
+/* =====================================================
+   API INTERACTION
+===================================================== */
+
+// This is the most important change for deployment.
+// You will replace this placeholder URL in Step 4 with the live URL from your Render backend.
+const API_BASE_URL = "https://your-backend-url.onrender.com/api";
+
+async function loadInitialMedia() {
+  try {
+    const res = await fetch(`${API_BASE_URL}/media`);
+    if (!res.ok) throw new Error("Failed to fetch media");
+    const { images, videos } = await res.json();
+
+    imageGallery.innerHTML = '';
+    videoGallery.innerHTML = ''; // Clear placeholders
+
+    images.forEach(url => createMediaElement(url, "image", imageGallery));
+    videos.forEach(url => createMediaElement(url, "video", videoGallery));
+  } catch (error) {
+    console.error("Error loading initial media:", error);
+    showToast("Could not load saved memories", "error");
+  }
+}
+
+async function saveMediaToDB(url, type) {
+    try {
+        const res = await fetch(`${API_BASE_URL}/media`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url, type })
+        });
+        if (!res.ok) throw new Error('Failed to save media to DB');
+    } catch (error) {
+        console.error(error);
+        showToast('Failed to save memory', 'error');
+    }
+}
+
+async function deleteMediaFromDB(url, type) {
+    const res = await fetch(`${API_BASE_URL}/media`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url, type })
+    });
+    return res.ok;
+}
+
+/* =====================================================
+   MEDIA CREATION
+===================================================== */
+// A collection of cute captions for the memory cards
+const memoryCaptions = [
+    "A Cherished Moment",
+    "My Favorite Smile",
+    "Our Happy Place",
+    "Forever in my Heart",
+    "So Much Love",
+    "Pure Happiness",
+    "Unforgettable Times",
+    "My World in a Picture",
+    "Love this so much!",
+    "Best day ever.",
+    "Adventures with you.",
+    "Just the two of us.",
+    "Making memories.",
+    "Couldn't be happier.",
+    "A day to remember.",
+    "My sunshine.",
+    "Every moment matters.",
+    "The best of times.",
+    "My dream come true.",
+    "This is everything."
+];
+
+function createMediaElement(url, type, gallery) {
+  const item = document.createElement("div");
+  // Added group and transform classes for new styling and hover effects
+  item.className = "media-item group transform transition-transform duration-300";
+  item.dataset.url = url;
+  item.dataset.type = type;
+
+  // Apply a random rotation to each item for a scrapbook feel
+  const rotation = Math.random() * 8 - 4; // Random angle between -4 and 4 degrees
+  item.style.transform = `rotate(${rotation}deg)`;
+
+  let mediaHTML = '';
+  // The container for the media will be square for gallery uniformity
+  if (type === "image") {
+    mediaHTML = `<img src="${cloudinaryImage(url)}" loading="lazy" class="w-full h-full object-cover" alt="User Memory" />`;
+  } else {
+    mediaHTML = `
+      <video controls playsinline webkit-playsinline preload="metadata" class="w-full h-full object-cover">
+        <source src="${cloudinaryVideo(url)}" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    `;
+  }
+
+  let captionHTML = '';
+  let bottomPaddingClass = 'pb-2';
+
+  if (type === 'image') {
+    // Pick a random caption to display on the card
+    const caption = memoryCaptions[Math.floor(Math.random() * memoryCaptions.length)];
+    captionHTML = `<div class="absolute bottom-2 left-2 right-2 text-center font-cursive text-pink-500 text-base px-1">${caption}</div>`;
+    bottomPaddingClass = 'pb-8';
+  }
+
+  // Polaroid-style card structure
+  item.innerHTML = `
+    <div class="bg-white p-2 ${bottomPaddingClass} rounded-lg shadow-xl border-2 border-gray-100 relative">
+      <div class="aspect-square overflow-hidden rounded-md">
+        ${mediaHTML}
+      </div>
+      ${captionHTML}
+      <button onclick="deleteMedia(this)"
+        class="delete-btn absolute -top-3 -right-3 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-20">
+        &times;
+      </button>
+    </div>
+  `;
+
+  gallery.prepend(item);
+}
+
+async function deleteMedia(btn) {
+  if (!confirm("Delete this memory permanently?")) return;
+  
+  const mediaItem = btn.closest(".media-item");
+  const url = mediaItem.dataset.url;
+  const type = mediaItem.dataset.type;
+
+  if (!url || !type) {
+      showToast("Cannot delete: media info missing.", "error");
+      return;
+  }
+
+  const success = await deleteMediaFromDB(url, type);
+
+  if (success) {
+      mediaItem.remove();
+      showToast("Memory deleted!");
+  } else {
+      showToast("Failed to delete from server.", "error");
+  }
+}
+
+/* =====================================================
+   FILE HANDLING
+===================================================== */
+async function handleUpload(files, type) {
+  const gallery = type === "image" ? imageGallery : videoGallery;
+  for (const file of files) {
+    try {
+      let url;
+      if (type === "image") {
+        if (file.size > 5 * 1024 * 1024) {
+          showToast("Image must be under 5MB", "error");
+          continue;
+        }
+        showToast("Uploading image...");
+        url = await uploadImage(file);
+        showToast("Image uploaded!");
+      } else { // video
+        if (file.size > 100 * 1024 * 1024) {
+          showToast("Video must be under 100MB", "error");
+          continue;
+        }
+        showToast("Uploading video...");
+        url = await uploadVideo(file);
+        showToast("Video uploaded!");
+      }
+      createMediaElement(url, type, gallery);
+      // Save to DB after successful upload and UI update
+      await saveMediaToDB(url, type);
+    } catch(err) {
+      console.error(err);
+      showToast("Upload failed", "error");
+    }
+  }
+}
+
+/* =====================================================
+   STEPS / NAVIGATION
+===================================================== */
+function changeStep(dir) {
+    if (sections[currentStep]) {
+        sections[currentStep].classList.remove("active");
+        sections[currentStep].style.display = "none";
+        sections[currentStep].style.opacity = "0";
+    }
+
+    if (currentStep === 8 && finalPageInterval) {
+        clearInterval(finalPageInterval);
+        finalPageInterval = null;
+        const decor = document.getElementById("final-decor");
+        if (decor) decor.innerHTML = "";
+    }
+
+    currentStep += dir;
+    if (currentStep < 0) currentStep = 0;
+    if (currentStep >= sections.length) currentStep = sections.length - 1;
+
+    if (sections[currentStep]) {
+        sections[currentStep].classList.add("active");
+        sections[currentStep].style.display = "flex";
+        sections[currentStep].style.opacity = "1";
+    }
+
+    const prev = document.getElementById("prevBtn");
+    const next = document.getElementById("nextBtn");
+    if (prev) prev.style.display = currentStep === 0 || currentStep === sections.length - 1 ? "none" : "flex";
+    if (next) next.style.display = currentStep === sections.length - 1 ? "none" : "flex";
+
+    const progress = ((currentStep + 1) / sections.length) * 100;
+    document.getElementById("progress").style.width = progress + "%";
+
+    if (currentStep === 8) {
+        startFinalPageDecor();
+    }
+
+    if (sections[currentStep]) sections[currentStep].scrollTop = 0;
+}
+
+function restartJourney() {
+    changeStep(-currentStep);
+}
+
+/* =====================================================
+   DECORATIONS / EFFECTS
+===================================================== */
+function startFinalPageDecor() {
+    if (finalPageInterval) return;
+    finalPageInterval = setInterval(() => {
+        const decor = document.getElementById("final-decor");
+        if (!decor) return;
+        const heart = document.createElement("div");
+        const items = ["❤️", "💖", "💕", "🌸", "✨"];
+        heart.textContent = items[Math.floor(Math.random() * items.length)];
+        heart.className = "absolute text-xl pointer-events-none opacity-40";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "-5vh";
+        decor.appendChild(heart);
+
+        const anim = heart.animate(
+            [
+                { transform: "translateY(0) rotate(0deg)", opacity: 0.6 },
+                { transform: `translateY(110vh) rotate(${Math.random() * 360}deg)`, opacity: 0 },
+            ],
+            { duration: 4000 + Math.random() * 2000, easing: "linear" }
+        );
+        anim.onfinish = () => heart.remove();
+    }, 500);
+}
+
+function revealMessage() {
+    document.getElementById("surprise-trigger").classList.add("hidden");
+    document.getElementById("surpriseMessage").classList.remove("hidden");
+    for (let i = 0; i < 60; i++) {
+        setTimeout(createExplosionHeart, i * 40);
+    }
+}
+
+function createExplosionHeart() {
+    const heart = document.createElement("div");
+    const items = ["❤️", "💖", "💕", "✨", "🌸", "🍭"];
+    heart.textContent = items[Math.floor(Math.random() * items.length)];
+    heart.className = "fixed text-2xl pointer-events-none z-[60]";
+    heart.style.left = "50vw";
+    heart.style.top = "50vh";
+    document.body.appendChild(heart);
+
+    const destX = (Math.random() - 0.5) * window.innerWidth * 1.5;
+    const destY = (Math.random() - 0.5) * window.innerHeight * 1.5;
+
+    const anim = heart.animate(
+        [
+            { transform: "translate(-50%, -50%) scale(0)", opacity: 1 },
+            { transform: `translate(calc(-50% + ${destX}px), calc(-50% + ${destY}px)) scale(${Math.random() * 2 + 1}) rotate(${Math.random() * 360}deg)`, opacity: 0 },
+        ],
+        { duration: 2500, easing: "ease-out" }
+    );
+    anim.onfinish = () => heart.remove();
+}
+
+function createHeroHearts() {
+    const container = document.getElementById("hero-hearts");
+    if (!container) return;
+    const items = ["❤️", "💖", "💕", "✨", "🌸"];
+    for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.className = "absolute text-2xl md:text-3xl opacity-20 heart-float";
+        heart.textContent = items[Math.floor(Math.random() * items.length)];
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.top = Math.random() * 100 + "%";
+        heart.style.animationDelay = Math.random() * 5 + "s";
+        container.appendChild(heart);
+    }
+}
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+function getNextBirthday() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    let birthday = new Date(currentYear, 0, 17); // January 17
+    if (now > birthday) {
+        birthday = new Date(currentYear + 1, 0, 17);
+    }
+    return birthday;
+}
+
+function updateCountdown() {
+    const diff = getNextBirthday() - new Date();
+
+    if (diff < 0) {
+        document.getElementById("countdownDisplay").style.display = "none";
+        document.getElementById("birthdayMessage").classList.remove("hidden");
+        if (countdownInterval) clearInterval(countdownInterval);
+        return;
+    }
+
+    const days = Math.floor(diff / 864e5);
+    const hours = Math.floor((diff % 864e5) / 36e5);
+    const minutes = Math.floor((diff % 36e5) / 6e4);
+    const seconds = Math.floor((diff % 6e4) / 1e3);
+
+    document.getElementById("days").innerText = String(days).padStart(2, "0");
+    document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+    document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+}
+
+/* =====================================================
+   UTILITIES
+===================================================== */
+function showToast(message, type = "success") {
+    const toast = document.createElement("div");
+    toast.className = `toast ${type === "error" ? "bg-red-500" : "bg-green-500"} text-white font-cute font-bold`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.animation = "slideIn 0.3s ease-out reverse";
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+/* =====================================================
+   EVENTS
+===================================================== */
+imageInput.addEventListener("change", e => {
+  handleUpload(e.target.files, "image");
+  e.target.value = "";
+});
+
+videoInput.addEventListener("change", e => {
+  handleUpload(e.target.files, "video");
+  e.target.value = "";
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentStep < sections.length - 1) {
+        changeStep(1);
+    } else if (e.key === "ArrowLeft" && currentStep > 0) {
+        changeStep(-1);
+    }
+});
+
+/* =====================================================
+   INIT
+===================================================== */
+function initializeApp() {
+    createHeroHearts();
+    updateCountdown();
+    countdownInterval = setInterval(updateCountdown, 1000);
+    loadInitialMedia();
+}
+initializeApp();
+
+window.addEventListener("beforeunload", () => {
+  if (finalPageInterval) clearInterval(finalPageInterval);
+  if (countdownInterval) clearInterval(countdownInterval);
+});
+    </script>
+  </body>
+</html>
