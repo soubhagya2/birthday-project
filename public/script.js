@@ -100,7 +100,6 @@ async function saveMediaToDB(url, type) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-secret-key": API_SECRET_KEY,
       },
       body: JSON.stringify({ url, type }),
     });
@@ -117,7 +116,6 @@ async function deleteMediaFromDB(url, type) {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      "x-secret-key": API_SECRET_KEY,
     },
     body: JSON.stringify({ url, type }),
   });
