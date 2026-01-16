@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Birthday Snigdha ❤️</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      src="https://upload-widget.cloudinary.com/global/all.js"
-      type="text/javascript"
-    ></script>
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap");
@@ -187,15 +184,34 @@
           top: 70px;
         }
       }
+      /* Universal responsive media fix */
+      .media-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1; /* images */
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+
+      .media-wrapper video {
+        aspect-ratio: 16 / 9;
+      }
+
+      .media-wrapper img,
+      .media-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
     </style>
   </head>
   <body class="bg-pink-50 text-gray-800 font-sans">
     <!-- Progress Indicator -->
     <div class="fixed top-0 left-0 w-full h-2 bg-pink-100 z-50">
-      <div
-        id="progress"
-        class="progress-bar h-full bg-gradient-to-r from-pink-400 via-rose-400 to-orange-300"
-      >
+      <div id="progress" class="progress-bar h-full bg-gradient-to-r from-pink-400 via-rose-400 to-orange-300">
+
         <div
           class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"
         ></div>
@@ -350,24 +366,21 @@
         <div
           id="imageGallery"
           class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl w-full px-4"
-        ></div>
+        >
+        </div>
       </section>
 
       <!-- 4. VIDEOS -->
       <section
         class="step-section h-full w-full flex flex-col items-center px-5 bg-gradient-to-br from-purple-100 to-rose-100 overflow-y-auto custom-scroll pt-10 pb-32"
       >
-        <div
-          class="mb-6 flex gap-2 md:gap-4 items-center justify-center flex-wrap px-4"
-        >
+        <div class="mb-6 flex gap-2 md:gap-4 items-center justify-center flex-wrap px-4">
           <img
             src="https://i.pinimg.com/originals/ec/96/32/ec963204a17a9dccdcee76b161aa7060.gif"
             class="md:block w-16 md:w-20 h-16 md:h-20 object-contain sticker-blend wiggle-anim"
             alt="Watching"
           />
-          <h2
-            class="text-3xl md:text-4xl text-pink-500 font-cursive text-center"
-          >
+          <h2 class="text-3xl md:text-4xl text-pink-500 font-cursive text-center">
             Moments in Motion 🎥
           </h2>
           <img
@@ -404,17 +417,13 @@
       <section
         class="step-section h-full w-full flex flex-col items-center px-5 bg-gradient-to-br from-white to-orange-50 overflow-y-auto custom-scroll pt-10 pb-32"
       >
-        <div
-          class="mb-6 flex gap-2 md:gap-4 items-center justify-center flex-wrap px-4"
-        >
+        <div class="mb-6 flex gap-2 md:gap-4 items-center justify-center flex-wrap px-4">
           <img
             src="https://i.pinimg.com/originals/c9/02/0a/c9020a6e157290d997a93c037a47e281.gif"
             alt="Happy"
             class="md:block w-16 md:w-20 h-16 md:h-20 object-contain sticker-blend wiggle-anim"
           />
-          <h2
-            class="text-3xl md:text-4xl text-pink-500 font-cursive text-center"
-          >
+          <h2 class="text-3xl md:text-4xl text-pink-500 font-cursive text-center">
             Why You're My Favorite 🌸
           </h2>
           <img
@@ -427,17 +436,9 @@
         <div
           class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-6xl w-full px-4"
         >
-          <div
-            class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group"
-          >
-            <div
-              class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform"
-            >
-              😊
-            </div>
-            <h3
-              class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute"
-            >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">😊</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
               Your Smile
             </h3>
             <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
@@ -445,17 +446,9 @@
             </p>
           </div>
 
-          <div
-            class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group"
-          >
-            <div
-              class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform"
-            >
-              💖
-            </div>
-            <h3
-              class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute"
-            >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">💖</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
               Kind Heart
             </h3>
             <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
@@ -463,17 +456,9 @@
             </p>
           </div>
 
-          <div
-            class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-1 hover:rotate-0 hover:scale-105 transition-all media-item group"
-          >
-            <div
-              class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform"
-            >
-              ✨
-            </div>
-            <h3
-              class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute"
-            >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-1 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">✨</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
               Inner Strength
             </h3>
             <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
@@ -481,17 +466,9 @@
             </p>
           </div>
 
-          <div
-            class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group"
-          >
-            <div
-              class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform"
-            >
-              😂
-            </div>
-            <h3
-              class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute"
-            >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">😂</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
               Your Laughter
             </h3>
             <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
@@ -499,17 +476,9 @@
             </p>
           </div>
 
-          <div
-            class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group"
-          >
-            <div
-              class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform"
-            >
-              🌟
-            </div>
-            <h3
-              class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute"
-            >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">🌟</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
               Your Support
             </h3>
             <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
@@ -517,17 +486,9 @@
             </p>
           </div>
 
-          <div
-            class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-1 hover:rotate-0 hover:scale-105 transition-all media-item group"
-          >
-            <div
-              class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform"
-            >
-              🤗
-            </div>
-            <h3
-              class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute"
-            >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-1 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">🤗</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
               Warm Vibes
             </h3>
             <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
@@ -535,17 +496,9 @@
             </p>
           </div>
 
-          <div
-            class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group"
-          >
-            <div
-              class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform"
-            >
-              🌹
-            </div>
-            <h3
-              class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute"
-            >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white rotate-2 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">🌹</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
               Uniqueness
             </h3>
             <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
@@ -553,17 +506,9 @@
             </p>
           </div>
 
-          <div
-            class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group"
-          >
-            <div
-              class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform"
-            >
-              💝
-            </div>
-            <h3
-              class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute"
-            >
+          <div class="bg-white p-4 md:p-5 rounded-3xl shadow-lg border-4 border-white -rotate-3 hover:rotate-0 hover:scale-105 transition-all media-item group">
+            <div class="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform">💝</div>
+            <h3 class="text-pink-600 font-bold text-sm md:text-base mb-2 font-cute">
               Pure Love
             </h3>
             <p class="text-xs md:text-sm text-gray-600 leading-tight font-cute">
@@ -573,11 +518,11 @@
         </div>
       </section>
 
+
       <!-- 6. TIMELINE -->
-      <section
-        class="step-section min-h-screen w-full flex flex-col items-center px-4 sm:px-5 bg-[#fffaf0] overflow-y-auto custom-scroll py-10"
-      >
+      <section class="step-section min-h-screen w-full flex flex-col items-center px-4 sm:px-5 bg-[#fffaf0] overflow-y-auto custom-scroll py-10">
         <div class="w-full max-w-2xl text-center text-pink-500">
+
           <img
             src="https://mystickermania.com/cdn/stickers/cute-cats/mochi-cat-friend-wake-up-512x512.png"
             alt="Happy Cat"
@@ -588,25 +533,18 @@
             Our Story Book 📖
           </h2>
 
-          <div
-            class="relative w-full text-left max-h-[60vh] overflow-y-auto custom-scroll px-2"
-          >
-            <span
-              class="absolute left-6 sm:left-8 top-0 h-full w-[2px] bg-pink-200"
-            ></span>
+          <div class="relative w-full text-left max-h-[60vh] overflow-y-auto custom-scroll px-2">
+
+            <span class="absolute left-6 sm:left-8 top-0 h-full w-[2px] bg-pink-200"></span>
 
             <ul class="space-y-8 sm:space-y-10 pl-12 sm:pl-16">
+
               <li class="relative">
                 <span
                   class="absolute -left-[38px] sm:-left-[46px] top-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-4 border-pink-300 shadow-md flex items-center justify-center text-sm z-10"
-                  >🐾</span
-                >
-                <div
-                  class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100"
-                >
-                  <h4
-                    class="font-bold text-pink-400 font-cute text-base sm:text-lg"
-                  >
+                >🐾</span>
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100">
+                  <h4 class="font-bold text-pink-400 font-cute text-base sm:text-lg">
                     The Day We Met
                   </h4>
                   <p class="text-gray-500 font-cute text-xs sm:text-sm mt-1">
@@ -618,14 +556,9 @@
               <li class="relative">
                 <span
                   class="absolute -left-[38px] sm:-left-[46px] top-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-4 border-pink-300 shadow-md flex items-center justify-center text-sm z-10"
-                  >💬</span
-                >
-                <div
-                  class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100"
-                >
-                  <h4
-                    class="font-bold text-pink-400 font-cute text-base sm:text-lg"
-                  >
+                >💬</span>
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100">
+                  <h4 class="font-bold text-pink-400 font-cute text-base sm:text-lg">
                     Our First Conversation
                   </h4>
                   <p class="text-gray-500 font-cute text-xs sm:text-sm mt-1">
@@ -634,17 +567,13 @@
                 </div>
               </li>
 
+
               <li class="relative">
                 <span
                   class="absolute -left-[38px] sm:-left-[46px] top-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-4 border-pink-300 shadow-md flex items-center justify-center text-sm z-10"
-                  >✨</span
-                >
-                <div
-                  class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100"
-                >
-                  <h4
-                    class="font-bold text-pink-400 font-cute text-base sm:text-lg"
-                  >
+                >✨</span>
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100">
+                  <h4 class="font-bold text-pink-400 font-cute text-base sm:text-lg">
                     Falling In Love
                   </h4>
                   <p class="text-gray-500 font-cute text-xs sm:text-sm mt-1">
@@ -656,14 +585,9 @@
               <li class="relative">
                 <span
                   class="absolute -left-[38px] sm:-left-[46px] top-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-4 border-pink-300 shadow-md flex items-center justify-center text-sm z-10"
-                  >🌟</span
-                >
-                <div
-                  class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100"
-                >
-                  <h4
-                    class="font-bold text-pink-400 font-cute text-base sm:text-lg"
-                  >
+                >🌟</span>
+                <div class="bg-white p-4 sm:p-5 rounded-3xl shadow-lg border-2 border-pink-100">
+                  <h4 class="font-bold text-pink-400 font-cute text-base sm:text-lg">
                     Always & Forever
                   </h4>
                   <p class="text-gray-500 font-cute text-xs sm:text-sm mt-1">
@@ -671,10 +595,13 @@
                   </p>
                 </div>
               </li>
+
             </ul>
           </div>
         </div>
       </section>
+
+
 
       <!-- 7. COUNTDOWN -->
       <section

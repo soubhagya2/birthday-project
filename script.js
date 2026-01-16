@@ -1,15 +1,9 @@
 /* =====================================================
-   CONFIG (SINGLE SOURCE OF TRUTH)
+   CLOUDINARY CONFIG (SINGLE SOURCE OF TRUTH)
 ===================================================== */
 const CLOUD_NAME = "dgqvkksup";
 const IMAGE_UPLOAD_PRESET = "birthday_unsigned";
 const VIDEO_UPLOAD_PRESET = "birthday_video_unsigned";
-
-// This is the most important change for deployment.
-const API_BASE_URL = "https://snigdha-birthday-server.onrender.com/api";
-
-// This key MUST match the SECRET_KEY on your Render server.
-const SECRET_KEY = "your-super-secret-key";
 
 /* =====================================================
    DOM REFERENCES
@@ -75,9 +69,13 @@ async function uploadVideo(file) {
    API INTERACTION
 ===================================================== */
 
+// This is the most important change for deployment.
+// You will replace this placeholder URL in Step 4 with the live URL from your Render backend.
+const API_BASE_URL = "https://birthday-project-7ks7.onrender.com";
+
 async function loadInitialMedia() {
   try {
-    const res = await fetch(`${API_BASE_URL}/media`);
+    const res = await fetch(`${API_BASE_URL}/api/media`);
     if (!res.ok) throw new Error("Failed to fetch media");
     const { images, videos } = await res.json();
 
@@ -94,31 +92,22 @@ async function loadInitialMedia() {
 
 async function saveMediaToDB(url, type) {
   try {
-    const res = await fetch(`${API_BASE_URL}/media`, {
+    const res = await fetch(`${API_BASE_URL}/api/media`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-secret-key": SECRET_KEY, // Add the secret key header
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ url, type }),
     });
-    if (!res.ok) {
-      const errorData = await res.json();
-      throw new Error(errorData.message || "Failed to save media to DB");
-    }
+    if (!res.ok) throw new Error("Failed to save media to DB");
   } catch (error) {
     console.error(error);
-    showToast(`Failed to save memory: ${error.message}`, "error");
+    showToast("Failed to save memory", "error");
   }
 }
 
 async function deleteMediaFromDB(url, type) {
-  const res = await fetch(`${API_BASE_URL}/media`, {
+  const res = await fetch(`${API_BASE_URL}/api/media`, {
     method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      "x-secret-key": SECRET_KEY, // Add the secret key header
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url, type }),
   });
   return res.ok;
@@ -153,15 +142,18 @@ const memoryCaptions = [
 
 function createMediaElement(url, type, gallery) {
   const item = document.createElement("div");
+  // Added group and transform classes for new styling and hover effects
   item.className =
     "media-item group transform transition-transform duration-300";
   item.dataset.url = url;
   item.dataset.type = type;
 
-  const rotation = Math.random() * 8 - 4;
+  // Apply a random rotation to each item for a scrapbook feel
+  const rotation = Math.random() * 8 - 4; // Random angle between -4 and 4 degrees
   item.style.transform = `rotate(${rotation}deg)`;
 
   let mediaHTML = "";
+  // The container for the media will be square for gallery uniformity
   if (type === "image") {
     mediaHTML = `<img src="${cloudinaryImage(
       url
@@ -179,12 +171,14 @@ function createMediaElement(url, type, gallery) {
   let bottomPaddingClass = "pb-2";
 
   if (type === "image") {
+    // Pick a random caption to display on the card
     const caption =
       memoryCaptions[Math.floor(Math.random() * memoryCaptions.length)];
     captionHTML = `<div class="absolute bottom-2 left-2 right-2 text-center font-cursive text-pink-500 text-base px-1">${caption}</div>`;
     bottomPaddingClass = "pb-8";
   }
 
+  // Polaroid-style card structure
   item.innerHTML = `
     <div class="bg-white p-2 ${bottomPaddingClass} rounded-lg shadow-xl border-2 border-gray-100 relative">
       <div class="aspect-square overflow-hidden rounded-md">
@@ -202,16 +196,11 @@ function createMediaElement(url, type, gallery) {
 }
 
 async function deleteMedia(btn) {
+  if (!confirm("Delete this memory permanently?")) return;
+
   const mediaItem = btn.closest(".media-item");
   const url = mediaItem.dataset.url;
   const type = mediaItem.dataset.type;
-
-  if (
-    !confirm(
-      `Are you sure you want to delete this ${type}? This action cannot be undone.`
-    )
-  )
-    return;
 
   if (!url || !type) {
     showToast("Cannot delete: media info missing.", "error");
@@ -224,7 +213,7 @@ async function deleteMedia(btn) {
     mediaItem.remove();
     showToast("Memory deleted!");
   } else {
-    showToast("Failed to delete memory. Check permissions.", "error");
+    showToast("Failed to delete from server.", "error");
   }
 }
 
@@ -255,10 +244,11 @@ async function handleUpload(files, type) {
         showToast("Video uploaded!");
       }
       createMediaElement(url, type, gallery);
+      // Save to DB after successful upload and UI update
       await saveMediaToDB(url, type);
     } catch (err) {
       console.error(err);
-      showToast(`Upload failed: ${err.message}`, "error");
+      showToast("Upload failed", "error");
     }
   }
 }
@@ -269,6 +259,8 @@ async function handleUpload(files, type) {
 function changeStep(dir) {
   if (sections[currentStep]) {
     sections[currentStep].classList.remove("active");
+    sections[currentStep].style.display = "none";
+    sections[currentStep].style.opacity = "0";
   }
 
   if (currentStep === 8 && finalPageInterval) {
@@ -284,6 +276,8 @@ function changeStep(dir) {
 
   if (sections[currentStep]) {
     sections[currentStep].classList.add("active");
+    sections[currentStep].style.display = "flex";
+    sections[currentStep].style.opacity = "1";
   }
 
   const prev = document.getElementById("prevBtn");
