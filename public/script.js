@@ -71,7 +71,11 @@ async function uploadVideo(file) {
 
 // This is the most important change for deployment.
 // You will replace this placeholder URL in Step 4 with the live URL from your Render backend.
-const API_BASE_URL = "https://birthday-project-7ks7.onrender.com";
+const API_BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://birthday-project-7ks7.onrender.com";
+
 
 async function loadInitialMedia() {
   try {
@@ -94,10 +98,14 @@ async function saveMediaToDB(url, type) {
   try {
     const res = await fetch(`${API_BASE_URL}/api/media`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-secret-key": API_SECRET_KEY,
+      },
       body: JSON.stringify({ url, type }),
     });
-    if (!res.ok) throw new Error("Failed to save media to DB");
+
+    if (!res.ok) throw new Error("Failed to save media");
   } catch (error) {
     console.error(error);
     showToast("Failed to save memory", "error");
@@ -107,9 +115,13 @@ async function saveMediaToDB(url, type) {
 async function deleteMediaFromDB(url, type) {
   const res = await fetch(`${API_BASE_URL}/api/media`, {
     method: "DELETE",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "x-secret-key": API_SECRET_KEY,
+    },
     body: JSON.stringify({ url, type }),
   });
+
   return res.ok;
 }
 
